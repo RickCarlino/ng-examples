@@ -1,0 +1,19 @@
+<html>
+  <head>
+  </head>
+  <body ng-app="xyzcorpApp">
+    <div ng-controller="main">
+
+      {{ greeting }}
+
+      <!-- Form is NOT defined in main app -->
+      <xyzcorp-offender-form>
+      </xyzcorp-offender-form>
+    </div>
+    <script src="/angular.js"></script>
+    <!-- shared form directives  -->
+    <script src="xyzcorp_forms.js"></script>
+    <script src="xyzcorp_app.js"></script>
+  </body>
+</html>
+

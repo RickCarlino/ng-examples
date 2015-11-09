@@ -1,0 +1,32 @@
+<html>
+	<head>
+	</head>
+	<body ng-app="myApp">
+		<div ng-controller="myCtrl">
+			<form name='xyzcorpForm'>
+				<div>
+					<label for="username">
+						Username:
+					</label>
+					<input type="text" name="username" ng-model="username">
+				</div>
+				<div>
+					<label for="email">
+						Email
+					</label>
+					<input type="text" name="email" ng-model="email">
+				</div>
+			</form>
+			<pre>{{ xyzcorpForm | json }}</pre>
+		</div>
+		<script src="/angular.js">
+		</script>
+		<script>
+			var app = angular
+			  .module("myApp", [])
+              .controller("myCtrl", function($scope){
+				$scope.truth = "2 + 2 = 4"
+			});
+		</script>
+	</body>
+</html>

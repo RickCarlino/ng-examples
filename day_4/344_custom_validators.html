@@ -1,0 +1,37 @@
+<html>
+	<head>
+	</head>
+	<body ng-app="myApp">
+		<div ng-controller="myCtrl">
+			<form name="example">
+				<p>Enter an ODD number. No even numbers!</p>
+				<input type="text"
+	             ng-model="example.myNum"
+	             odd/>
+	      <div ng-messages="example.$error">
+          <span ng-message="odd">Must be odd!</span>
+        </div>
+			</form>
+		</div>
+		<script src="/angular.js"></script>
+    <script src="/angular-messages.js"></script>
+		<script>
+			var app = angular
+			  .module("myApp", ["ngMessages"])
+        .controller("myCtrl", function($scope) { })
+        .directive("odd", function() {
+          return {
+            restrict: "A",
+            require: "ngModel",
+            link: function(scope, el, attr, ngModelCtrl) {
+              ngModelCtrl
+                .$validators
+                .odd = function(modelValue, viewValue) {
+              	// REMEBER: 0 is false in JS!
+              	return (modelValue % 2 === 1);
+              }
+          }
+        }});
+		</script>
+	</body>
+</html>
